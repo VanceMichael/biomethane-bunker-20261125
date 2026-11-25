@@ -1,0 +1,14 @@
+{
+  "name": "燃料凭证登记方",
+  "path": "/certificates/issues",
+  "lookup": "/certificates/issues/",
+  "id": "issueReference",
+  "group": "allocations",
+  "key": "Issue-Request-Key",
+  "modes": [
+    "accepted",
+    "rejected",
+    "accepted_disconnect",
+    "pending"
+  ]
+}

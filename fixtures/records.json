@@ -1,0 +1,153 @@
+{
+  "vessels": [
+    {
+      "id": "SHIP-1",
+      "fuel": "bio-LNG"
+    },
+    {
+      "id": "SHIP-2",
+      "fuel": "bio-LNG"
+    }
+  ],
+  "batches": [
+    {
+      "id": "LOT-1",
+      "supplier": "SUP-A",
+      "massGrams": 90000000,
+      "quality": "released",
+      "certificate": "SC-1"
+    },
+    {
+      "id": "LOT-2",
+      "supplier": "SUP-A",
+      "massGrams": 60000000,
+      "quality": "pending",
+      "certificate": "SC-2"
+    }
+  ],
+  "certificates": [
+    {
+      "id": "SC-1",
+      "eligibleGrams": 80000000,
+      "status": "valid"
+    },
+    {
+      "id": "SC-2",
+      "eligibleGrams": 60000000,
+      "status": "valid"
+    }
+  ],
+  "orders": [
+    {
+      "id": "BO-1",
+      "vessel": "SHIP-1",
+      "grams": 50000000,
+      "toleranceGrams": 500000,
+      "berth": "B-1",
+      "window": "WIN-1"
+    },
+    {
+      "id": "BO-2",
+      "vessel": "SHIP-2",
+      "grams": 40000000,
+      "toleranceGrams": 400000,
+      "berth": "B-1",
+      "window": "WIN-1"
+    }
+  ],
+  "windows": [
+    {
+      "id": "WIN-1",
+      "start": "2026-11-26T02:00:00Z",
+      "end": "2026-11-26T06:00:00Z"
+    }
+  ],
+  "meterInputs": [
+    {
+      "id": "MT-1",
+      "device": "FLOW-1",
+      "sequence": 1,
+      "restart": 0,
+      "readingGrams": 100000
+    },
+    {
+      "id": "MT-2",
+      "device": "FLOW-1",
+      "sequence": 2,
+      "restart": 0,
+      "readingGrams": 25100000
+    },
+    {
+      "id": "MT-3",
+      "device": "FLOW-1",
+      "sequence": 3,
+      "restart": 1,
+      "readingGrams": 5000
+    }
+  ],
+  "actors": [
+    {
+      "id": "ship-a",
+      "role": "ship",
+      "vessel": "SHIP-1"
+    },
+    {
+      "id": "sup-a",
+      "role": "supplier",
+      "supplier": "SUP-A"
+    },
+    {
+      "id": "terminal",
+      "role": "terminal"
+    },
+    {
+      "id": "meter",
+      "role": "meter"
+    },
+    {
+      "id": "settlement",
+      "role": "settlement"
+    }
+  ],
+  "sourceChanges": [
+    {
+      "id": "PERMIT-SHIP",
+      "order": "BO-1",
+      "party": "ship",
+      "window": "WIN-1",
+      "batch": "LOT-1",
+      "decision": "allow"
+    },
+    {
+      "id": "PERMIT-TERM",
+      "order": "BO-1",
+      "party": "terminal",
+      "window": "WIN-1",
+      "batch": "LOT-1",
+      "decision": "allow"
+    },
+    {
+      "id": "PERMIT-SUP",
+      "order": "BO-1",
+      "party": "supplier",
+      "window": "WIN-1",
+      "batch": "LOT-1",
+      "decision": "allow"
+    },
+    {
+      "id": "SC-WITHDRAW",
+      "certificate": "SC-1",
+      "reason": "来源凭据待核对"
+    },
+    {
+      "id": "METER-CORRECTION",
+      "replaces": "MT-2",
+      "readingGrams": 24900000
+    },
+    {
+      "id": "PAUSE-WEATHER",
+      "order": "BO-1",
+      "reason": "现场天气变化"
+    }
+  ]
+}

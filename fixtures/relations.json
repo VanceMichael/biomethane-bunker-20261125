@@ -1,0 +1,20 @@
+[
+  {
+    "table": "batches",
+    "field": "certificate",
+    "target": "certificates",
+    "nullable": false
+  },
+  {
+    "table": "orders",
+    "field": "vessel",
+    "target": "vessels",
+    "nullable": false
+  },
+  {
+    "table": "orders",
+    "field": "window",
+    "target": "windows",
+    "nullable": false
+  }
+]
